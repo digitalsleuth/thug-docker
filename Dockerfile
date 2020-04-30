@@ -4,7 +4,7 @@
 #
 # To run this image after installing Docker, you have a number of options:
 #
-# sudo docker run --rm  -v <local_folder>:/tmp/thug/logs remnux/thug <variables>
+# sudo docker run --rm  -v <local_folder>:/tmp/thug/logs digitalsleuth/thug-docker <variables>
 #
 #   This will allow you to run thug as a 'headless' application without
 #   having to enter the docker. Variables can be passed on the command-line
@@ -12,12 +12,12 @@
 #   by default. Your <local_folder> should be made world-accessible to ensure
 #   no permissions issues: e.g. "chmod a+xwr ~/logs"
 # 
-# sudo docker run --rm -it --entrypoint "/bin/bash" remnux/thug
+# sudo docker run --rm -it --entrypoint "/bin/bash" digitalsleuth/thug-docker
 #
 #   This will enter you into the docker where you can run  "thug" with 
 #   the desired parameters (such as -F to enable file logging).
 #
-# sudo docker run --rm -it -v <local_folder>:/tmp/thug/logs --entrypoint "/bin/bash" remnux/thug
+# sudo docker run --rm -it -v <local_folder>:/tmp/thug/logs --entrypoint "/bin/bash" digitalsleuth/thug-docker
 #
 #   This is essentially a combination of both of the above, allowing you entry into 
 #   the docker, and storage of log files in your host environment.
@@ -32,9 +32,10 @@
 # on the installation script created by Payload Security
 # (https://github.com/PayloadSecurity/VxCommunity/blob/master/bash/thuginstallation.sh)
 
-
 FROM ubuntu:18.04
-MAINTAINER Lenny Zeltser (@lennyzeltser, www.zeltser.com)
+LABEL maintainer="Lenny Zeltser (@lennyzeltser, www.zeltser.com)"
+LABEL updated="30 Apr 2020"
+LABEL updated_by="digitalsleuth"
 
 USER root
 RUN apt-get update && \
